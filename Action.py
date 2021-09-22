@@ -1,7 +1,7 @@
 class Action:
     def __init__(self, name, price, profits):
         self.name = name
-        self.price = abs(price)
+        self.price = int(abs(price)*100)
         self.profits = profits*1/100
         self.profitability = self.price*self.profits
 
