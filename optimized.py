@@ -1,8 +1,11 @@
 from Node import Node
 
+
 def optimized(actions, W):
     n = len(actions)
     mat = [[0 for x in range( W + 1 )] for x in range( n + 1 )]
+    action_list = []
+    result = 0
 
     for i in range(n + 1):
         for j in range(W + 1):
@@ -13,7 +16,18 @@ def optimized(actions, W):
             else:
                 mat[i][j] = mat[i-1][j]
 
-    return mat[n][W]
+    r = mat[n][W]
+    while r != 0:
+        if mat[n-1][W] == r:
+            n -= 1
+        else:
+            r = mat[n-1][W-actions[n-1].price]
+            W -= actions[n-1].price
+            n -= 1
+            action_list.append(actions[n])
+            result += actions[n].profitability
+
+    return action_list, result
 
 
 def optimized_POO(actions, W):

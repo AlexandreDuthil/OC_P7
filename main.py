@@ -18,10 +18,19 @@ actions = get_action_list_POO(data)  # fonctionnement avec POO
 # best_actions_POO, total_profits_POO, final_cost_POO = brute_force_POO(actions, W)  # fonctionnement avec POO
 # stop_POO = time.time()
 
+# start_optimized = time.time()
+# action_list, result = optimized(actions, W)
+# stop_optimized = time.time()
+# print(F"liste des actions : {action_list}")
+# print(F"gains : {result}")
+# # print(result.value)
+# print(F"running time : {stop_optimized-start_optimized}")
+
 start_optimized = time.time()
-result = optimized(actions, W)
+result = optimized_POO(actions, W)
 stop_optimized = time.time()
-print(F"liste des actions : {result}")
+print(F"liste des actions : {result.action_list}")
+print(F"gains : {result.value}")
 # print(result.value)
 print(F"running time : {stop_optimized-start_optimized}")
 
