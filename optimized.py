@@ -6,6 +6,8 @@ def optimized(actions, W):
     mat = [[0 for x in range( W + 1 )] for x in range( n + 1 )]
     action_list = []
     result = 0
+    cost = 0
+
 
     for i in range(n + 1):
         for j in range(W + 1):
@@ -26,8 +28,10 @@ def optimized(actions, W):
             n -= 1
             action_list.append(actions[n])
             result += actions[n].profitability
+    for action in action_list:
+        cost += action.price
 
-    return action_list, result
+    return action_list, result, cost
 
 
 def optimized_POO(actions, W):

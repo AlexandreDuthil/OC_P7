@@ -36,7 +36,6 @@ def brute_force_POO(actions, W):
     best_actions_profits = 0
     final_cost = 0
     for i in range(n):
-        print(F"{i+1}/{n}")
         for combination in (combinations(actions, i+1)):
             names = []
             cost = 0
@@ -44,7 +43,7 @@ def brute_force_POO(actions, W):
             for element in combination:
                 cost += element.price
                 total_profit += element.profitability
-            if cost <= 500 and total_profit > best_actions_profits:
+            if cost <= W and total_profit > best_actions_profits:
                 for element in combination:
                     names.append(element.name)
                     best_actions = names
