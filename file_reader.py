@@ -2,6 +2,7 @@ from Action import Action
 
 # sans création d'objet, récupération de listes
 
+
 def get_action_list(data):
     names = []
     prices = []

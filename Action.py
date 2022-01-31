@@ -9,13 +9,16 @@ class Action:
         if isinstance(compared_object, Action):
             return self.profits == compared_object.profits
         else:
-            raise TypeError("Ne peut pas comparer une Action avec un autre type d'objet")
+            raise TypeError("Ne peut pas comparer une Action "
+                            "avec un autre type d'objet")
 
     def __gt__(self, compared_object):
         if isinstance(compared_object, Action):
             return self.profits > compared_object.profits
         else:
-            raise TypeError("Ne peut pas comparer une Action avec un autre type d'objet")
+            raise TypeError("Ne peut pas comparer une Action "
+                            "avec un autre type d'objet")
 
     def __repr__(self):
-        return f"({self.name},{self.price}, {self.profits}, {self.profitability})"
+        return f"({self.name},{self.price}, {self.profits}," \
+               f" {self.profitability})"

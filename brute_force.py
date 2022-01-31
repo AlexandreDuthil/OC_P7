@@ -21,15 +21,16 @@ def brute_force(names, prices, profits, W):
             total_profit = 0
             for element in combination:
                 cost += prices[names.index(element)]
-                total_profit += (prices[names.index(element)]*profits[names.index(element)])
-            if cost <= 500 and total_profit > best_actions_profits:
+                total_profit += (prices[names.index(element)] *
+                                 profits[names.index(element)])
+            if cost <= W and total_profit > best_actions_profits:
                 best_actions = combination
                 best_actions_profits = total_profit
                 final_cost = cost
     return best_actions, best_actions_profits/100, final_cost
 
 
- # fonctionnement avec POO
+# fonctionnement avec POO
 def brute_force_POO(actions, W):
     n = len(actions)
     best_actions = []
