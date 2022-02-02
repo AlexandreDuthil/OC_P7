@@ -32,6 +32,13 @@ def brute_force(names, prices, profits, W):
 
 # fonctionnement avec POO
 def brute_force_POO(actions, W):
+    """
+       Brute force algorithm solving knapsack problem
+       :param actions: list of Actions objects
+       :param W: our wallet, or maximum capacity of knapsack
+       :return: best_actions, best_actions_profits, final_cost
+    """
+    W = W*100
     n = len(actions)
     best_actions = []
     best_actions_profits = 0
@@ -49,5 +56,5 @@ def brute_force_POO(actions, W):
                     names.append(element.name)
                     best_actions = names
                 best_actions_profits = total_profit
-                final_cost = cost
+                final_cost = cost/100
     return best_actions, best_actions_profits, final_cost

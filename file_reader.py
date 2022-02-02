@@ -2,7 +2,6 @@ from Action import Action
 
 # sans création d'objet, récupération de listes
 
-
 def get_action_list(data):
     names = []
     prices = []
@@ -14,9 +13,11 @@ def get_action_list(data):
                 continue
             line = line.replace("\n", "")
             line = line.split(",")
-            names.append(line[0])
-            prices.append(float(line[1]))
-            profits.append(float(line[2]))
+            print(line[1])
+            if line[1] != 0.0:
+                names.append(line[0])
+                prices.append(float(line[1]))
+                profits.append(float(line[2]))
     return names, prices, profits
 
 
@@ -30,6 +31,7 @@ def get_action_list_POO(data):
                 continue
             line = line.replace("\n", "")
             line = line.split(",")
-            line = Action(line[0], float(line[1]), float(line[2]))
-            actions.append(line)
+            if line[1] != "0.0":
+                line = Action(line[0], float(line[1]), float(line[2]))
+                actions.append(line)
     return actions

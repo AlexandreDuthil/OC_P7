@@ -2,6 +2,13 @@ from Node import Node
 
 
 def optimized(actions, W):
+    """
+       Optimized algorithm solving knapsack problem with dynamic programming
+       :param actions: list of Actions objects
+       :param W: our wallet, or maximum capacity of knapsack
+       :return: best_actions, best_actions_profits, final_cost
+    """
+    W = W*100
     n = len(actions)
     mat = [[0 for x in range(W + 1)] for x in range(n + 1)]
     action_list = []
@@ -31,12 +38,14 @@ def optimized(actions, W):
             result += actions[n].profitability
     for action in action_list:
         cost += action.price
+    cost = cost/100
 
     return action_list, result, cost
 
 
 def optimized_POO(actions, W):
     n = len(actions)
+    W = W*100
     mat = [[Node() for x in range(W + 1)] for x in range(n + 1)]
 
     for i in range(n + 1):

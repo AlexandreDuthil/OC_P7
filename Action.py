@@ -1,9 +1,16 @@
+from decimal import *
+
+
 class Action:
     def __init__(self, name, price, profits):
         self.name = name
-        self.price = int(abs(price))
-        self.profits = profits*1/100
-        self.profitability = self.price*self.profits
+        self.price = int(abs(price)*100)
+        with localcontext() as ctx:
+            ctx.prec = 2
+            self.profits = profits
+        with localcontext() as ctx:
+            ctx.prec = 6
+            self.profitability = Decimal((self.price*self.profits))/10000
 
     def __eq__(self, compared_object):
         if isinstance(compared_object, Action):
@@ -20,5 +27,5 @@ class Action:
                             "avec un autre type d'objet")
 
     def __repr__(self):
-        return f"({self.name},{self.price}, {self.profits}," \
-               f" {self.profitability})"
+        return f"(Name : {self.name}, Price : {self.price}, Profits : {self.profits}," \
+               f" Profitability : {self.profitability})"
