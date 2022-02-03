@@ -27,5 +27,6 @@ class Action:
                             "avec un autre type d'objet")
 
     def __repr__(self):
-        return f"(Name : {self.name}, Price : {self.price}, Profits : {self.profits}," \
-               f" Profitability : {self.profitability})"
+        return f"(Nom : {self.name}, Prix : {self.price}, Rentabilité : " \
+               f"{self.profits}," \
+               f" Bénéfices : {self.profitability})"
